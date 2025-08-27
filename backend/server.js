@@ -13,7 +13,12 @@ app.use(express.json())// to enable app to send JSON data/to be used after app c
 
 const cors = require("cors");
 
-app.use(cors());
+app.use(cors({
+  origin: "https://mern-todo-axios-frontend.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true
+}));
 const { connectDB } = require('./database/dbConnection') 
 
 app.get('/health', (req, res) => {
