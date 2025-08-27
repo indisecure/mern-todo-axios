@@ -1,0 +1,68 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  background-color: #f4f4f4;
+  font-family: sans-serif;
+}
+.container {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90vw;
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+  background-color:black;
+  color: wheat;
+}
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  
+}
+.newtodo {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family:cursive;
+  font-size: 1.1rem;
+  
+}
+.caption {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family:cursive
+}
+.todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family:cursive;
+  font-size: 1rem;
+}
+.fa-trash{
+  font-size: 1.17rem; 
+  color:rgb(223, 37, 37)
+}
+.button_update{
+ cursor:pointer;
+  font-family:cursive
+}
+.button_delete{
+ cursor:pointer;
+  font-family:cursive
+}
+.create{
+  cursor: pointer;
+  font-family:cursive;
+}
