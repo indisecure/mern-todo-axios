@@ -10,7 +10,7 @@ const path= require('path')
 const userRouter = require("./routes/route");
 
 app.use(express.json())// to enable app to send JSON data/to be used after app creation
-app.use(express.static(path.join(__dirname,'dist')))// for use of static files/folders
+
 const cors = require("cors");
 app.use(cors({
   origin: process.env.CLIENT_URL || "http://localhost:5173",
@@ -20,9 +20,6 @@ app.use(cors({
 }));
 const { connectDB } = require('./database/dbConnection') 
 
-app.get('/',(req,res)=>{
-  res.sendFile(path.join(__dirname,'dist','index.html'))
-})
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
