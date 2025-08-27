@@ -12,12 +12,8 @@ const userRouter = require("./routes/route");
 app.use(express.json())// to enable app to send JSON data/to be used after app creation
 
 const cors = require("cors");
-app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true
-}));
+
+app.use(cors());
 const { connectDB } = require('./database/dbConnection') 
 
 app.get('/health', (req, res) => {
