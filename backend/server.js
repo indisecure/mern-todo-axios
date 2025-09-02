@@ -28,7 +28,7 @@ app.get('/',(req,res)=>{
   res.sendFile(path.join(__dirname,'dist','index.html'))
 })
 
-cron.schedule('*/1 * * * *', async () => {
+cron.schedule('*/10 * * * *', async () => {
   try {
     const res = await axios.get('http:localhost:5000/health');//need URL 
     console.log(`Self-ping success: ${res.status}`);
