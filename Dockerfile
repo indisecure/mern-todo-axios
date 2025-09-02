@@ -8,7 +8,7 @@ COPY ./client/ .
 RUN npm run build
 
 # Stage 2: Serve the backend and the built frontend
-FROM node:18-alpine
+FROM node:22-alpine
 WORKDIR /app
 
 COPY ./backend/package*.json ./
