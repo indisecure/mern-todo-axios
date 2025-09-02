@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
   proxy: {
     "/api"   :"http://localhost:5000" ,
-    "/health":"http://localhost:5000"
+    "/health":"https://mern-todo-axios.onrender.com"
     },
     
 }
