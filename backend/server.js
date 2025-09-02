@@ -1,5 +1,5 @@
-const env = require("dotenv");
-env.config(); 
+const dotenv = require("dotenv");
+dotenv.config({"quiet":true}); 
 const cron = require('node-cron');
 const axios = require('axios');
 const express = require("express");
@@ -9,16 +9,13 @@ const path= require('path')
 
 const userRouter = require("./routes/route");
 
-app.use(express.json())// to enable app to send JSON data/to be used after app creation
+app.use(express.json())
+
+app.use(express.static(path.join(__dirname,'dist')))
 
 const cors = require("cors");
 
-app.use(cors({
-  origin: "https://mern-todo-axios-frontend.onrender.com",
-  methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true
-}));
+app.use(cors())  
 const { connectDB } = require('./database/dbConnection') 
 
 app.get('/health', (req, res) => {
@@ -27,9 +24,13 @@ app.get('/health', (req, res) => {
 
 app.use("/api", userRouter);
 
-cron.schedule('*/10 * * * *', async () => {
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'dist','index.html'))
+})
+
+cron.schedule('*/1 * * * *', async () => {
   try {
-    const res = await axios.get('https://mern-todo-axios-backend.onrender.com/health');
+    const res = await axios.get('http:localhost:5000/health');//need URL 
     console.log(`Self-ping success: ${res.status}`);
   } catch (err) {
     console.error('Self-ping failed:', err.message);

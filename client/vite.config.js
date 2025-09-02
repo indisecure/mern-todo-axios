@@ -3,12 +3,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],  
   build: {
-    outDir: 'dist',
+    outDir: '../backend/dist',
     emptyOutDir: true
   },
   server: {
   proxy: {
-    "/api"   : "http://localhost:5000" ,
+    "/api"   :"http://localhost:5000" ,
     "/health":"http://localhost:5000"
     },
     

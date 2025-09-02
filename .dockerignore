@@ -1,0 +1,13 @@
+# Node.js dependencies and build artifacts
+**/node_modules
+**/dist
+npm-debug.log*
+
+# Environment and configuration files
+.env
+.DS_Store
+
+# Version control and editor files
+.git
+.gitignore
+.vscode

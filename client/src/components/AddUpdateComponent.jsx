@@ -18,9 +18,9 @@ function AddUpdateComponent() {
     const todo = { task };
     try {
       if (id) {
-        await axios.put(`https://mern-todo-axios-backend.onrender.com/api/todo/${id}`, todo);
+        await axios.put(`/api/todo/${id}`, todo);
       } else {
-        await axios.post('https://mern-todo-axios-backend.onrender.com/api/todo', todo);
+        await axios.post('/api/todo', todo);
       }
       navigate('/');
     } catch (error) {
@@ -31,7 +31,7 @@ function AddUpdateComponent() {
   useEffect(() => {
     const fetchTodo = async () => {
       try {
-        const response = await axios.get(`https://mern-todo-axios-backend.onrender.com/api/todo/${id}`);
+        const response = await axios.get(`/api/todo/${id}`);
         setTask(response.data.task || '');
       } catch (error) {
         console.error('Error fetching todo:', error);

@@ -6,7 +6,7 @@ function GetDeleteComponent() {
     const [todos, setTodos] = useState([])      
         const getAllTodos = async () => {
         try {
-            const response = await axios.get('https://mern-todo-axios-backend.onrender.com/api/todo')
+            const response = await axios.get('/api/todo')
             setTodos(response.data)
         } catch (error) {
             console.log(error);
@@ -18,7 +18,7 @@ function GetDeleteComponent() {
 
     const toggleComplete = async (id, status) => {
         try {
-            await axios.patch(`https://mern-todo-axios-backend.onrender.com/api/todo/${id}`, { completed: status });
+            await axios.patch(`/api/todo/${id}`, { completed: status });
             getAllTodos();
         } catch (error) {
             console.error('Error toggling complete status:', error);
@@ -27,7 +27,7 @@ function GetDeleteComponent() {
 
     const deleteTodo = async (id) => {
         try {
-            await axios.delete(`https://mern-todo-axios-backend.onrender.com/api/todo/${id}`)
+            await axios.delete(`/api/todo/${id}`)
             getAllTodos()
         } catch (error) {
             console.log(error);
