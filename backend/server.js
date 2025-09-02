@@ -28,7 +28,7 @@ app.get('/',(req,res)=>{
   res.sendFile(path.join(__dirname,'dist','index.html'))
 })
 
-cron.schedule('*/14 * * * *', async () => {
+cron.schedule('*/12 * * * *', async () => {
   try {
     const res = await axios.get('https://mern-todo-axios.onrender.com/health');//need render URL 
     console.log(`Self-ping success: ${res.status}`);
@@ -47,6 +47,7 @@ app.listen(PORT, async () => {
     console.error("Failed to connect to database:", error);
   }
 });
+
 
 
 
