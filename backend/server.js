@@ -30,7 +30,7 @@ app.get('/',(req,res)=>{
 
 cron.schedule('*/10 * * * *', async () => {
   try {
-    const res = await axios.get('https://mern-todo-axios.onrender.com/health');//need render URL 
+    const res = await axios.get('/health');//need render URL 
     console.log(`Self-ping success: ${res.status}`);
   } catch (err) {
     console.error('Self-ping failed:', err.message);
