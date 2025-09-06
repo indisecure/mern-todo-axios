@@ -18,6 +18,6 @@ COPY ./backend/ .
 # Copy the built frontend from the previous stage to the backend directory
 COPY --from=frontend-builder /app/client/dist ./dist
 
-EXPOSE 5000
+EXPOSE 10000
 
 CMD ["node", "server.js"]v
